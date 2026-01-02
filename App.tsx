@@ -1,10 +1,19 @@
 
 import React, { useState, useMemo, useEffect, useRef } from 'react';
-import { MODULES, TOOLKIT, PROMPT_LIBRARY, GLOSSARY, CASE_STUDIES } from './constants';
-import { ModuleId, ModuleData, Tool, ViewType, Lesson, VibeManifesto } from './types';
+import { MODULES, TOOLKIT, PROMPT_LIBRARY, GLOSSARY, CASE_STUDIES } from './constants.tsx';
+import { ModuleId, ModuleData, Tool, ViewType, Lesson, VibeManifesto } from './types.ts';
 import { GoogleGenAI, Type } from "@google/genai";
-import { ProTip } from './components/ProTip';
-import { Diagram } from './components/Diagram';
+import { ProTip } from './ProTip.tsx';
+import { Diagram } from './Diagram.tsx';
+
+// Safety helper for environments where process might be undefined
+const getApiKey = () => {
+  try {
+    return process.env.API_KEY;
+  } catch (e) {
+    return undefined;
+  }
+};
 
 const InternalVideoPlayer: React.FC<{ url: string }> = ({ url }) => {
   const getEmbedUrl = (link: string) => {
@@ -34,9 +43,14 @@ const VibeSandbox: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   const manifestVibe = async () => {
+    const apiKey = getApiKey();
+    if (!apiKey) {
+      alert("API Key not found in environment.");
+      return;
+    }
     setLoading(true);
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const ai = new GoogleGenAI({ apiKey });
       const response = await ai.models.generateContent({
         model: 'gemini-3-flash-preview',
         contents: `Manifest the visual vibe for: "${vibe}". Provide a color palette (hex codes), suggested fonts, and a brief description of the aesthetic.`,
@@ -120,9 +134,14 @@ const IntentAuditor: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   const auditPrompt = async () => {
+    const apiKey = getApiKey();
+    if (!apiKey) {
+      alert("API Key not found in environment.");
+      return;
+    }
     setLoading(true);
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const ai = new GoogleGenAI({ apiKey });
       const response = await ai.models.generateContent({
         model: 'gemini-3-flash-preview',
         contents: `Audit this developer prompt for "Architectural Intent" versus "Low-level Syntax". Prompt: "${prompt}". Score 0-100.`,
@@ -196,10 +215,15 @@ const VisualManifestor: React.FC<{ prompt: string; alt: string }> = ({ prompt, a
   const [error, setError] = useState<string | null>(null);
 
   const generateImage = async () => {
+    const apiKey = getApiKey();
+    if (!apiKey) {
+      setError("API Key not found.");
+      return;
+    }
     setLoading(true);
     setError(null);
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const ai = new GoogleGenAI({ apiKey });
       const response = await ai.models.generateContent({
         model: 'gemini-2.5-flash-image',
         contents: { parts: [{ text: prompt }] },
