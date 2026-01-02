@@ -23,6 +23,8 @@ export interface Lesson {
   conceptDescription: string;
   instructions: string[];
   visualGuideDescription: string;
+  imagePrompt: string; // Used for the AI image generator
+  videoUrl?: string; // YouTube embed URL
 }
 
 export interface ModuleData {
@@ -31,6 +33,7 @@ export interface ModuleData {
   description: string;
   lessons: Lesson[];
   quiz: QuizQuestion[];
+  introVideo?: string;
 }
 
 export interface Tool {
@@ -57,5 +60,5 @@ export interface CaseStudy {
   description: string;
   vibe: string;
   outcome: string;
-  image: string;
+  imagePrompt: string;
 }

@@ -3,216 +3,283 @@ import { ModuleId, ModuleData, Tool, PromptTemplate, GlossaryItem, CaseStudy } f
 
 export const PROMPT_LIBRARY: PromptTemplate[] = [
   {
-    title: 'The UI Skeleton',
+    title: 'System Architectural Intent',
     category: 'Design',
-    scenario: 'Starting a new frontend project',
-    template: 'Build a modern, minimalist [APP_TYPE] dashboard using Tailwind CSS. Use a [COLOR_PALETTE] color scheme. Focus on high whitespace and accessible typography.'
+    scenario: 'Defining a new full-stack system',
+    template: 'I am building a [SYSTEM_NAME]. The core user flow is [STEP_1] to [STEP_2]. I value [SPEED/ACCURACY/ESTHETICS]. Generate the initial project structure, identifying key components and state management requirements. Use a modern tech stack (React, Tailwind, Supabase).'
   },
   {
-    title: 'Logical Bridge',
+    title: 'Deterministic Logic Manifest',
     category: 'Logic',
-    scenario: 'Connecting frontend to a database',
-    template: 'Create a TypeScript function to fetch all [TABLE_NAME] from Supabase. Handle loading states and provide a descriptive error if the connection fails.'
+    scenario: 'Refining complex business logic',
+    template: 'This function handles [PROCESS]. Currently, it fails when [EDGE_CASE]. Rewrite this to be deterministic, handle all edge cases explicitly, and include detailed logging for architectural debugging.'
   },
   {
-    title: 'The Bug Hunter',
+    title: 'The Component Architect',
+    category: 'Design',
+    scenario: 'Building a complex UI component',
+    template: 'Create a high-fidelity [COMPONENT_NAME] using Tailwind CSS. It must be fully accessible (ARIA), responsive, and support [DARK/LIGHT] modes. The component should handle these states: [LOADING/ERROR/EMPTY].'
+  },
+  {
+    title: 'Database Schema Manifesto',
+    category: 'Logic',
+    scenario: 'Designing a data model',
+    template: 'Design a relational database schema for [APP_TYPE]. Include tables for [ENTITIES]. Define relationships (1:N, M:N) and suggest Row Level Security (RLS) policies to ensure data sovereignty.'
+  },
+  {
+    title: 'Agentic Bug Hunter',
     category: 'Debugging',
-    scenario: 'Fixing a cryptic error',
-    template: 'I am getting a "[ERROR_NAME]" error in my [FILE_NAME]. Here is the code context. Explain why this is happening and provide the corrected version.'
+    scenario: 'Fixing a recurring system error',
+    template: 'I am seeing [ERROR_MESSAGE] in [FILE]. Here is the current context and logs. Analyze the root cause across the system, not just the file, and provide a comprehensive fix that prevents regression.'
+  },
+  {
+    title: 'API Waiter Specification',
+    category: 'Logic',
+    scenario: 'Connecting Frontend to Backend',
+    template: 'Create a TypeScript service that acts as the waiter between my Frontend and [API_ENDPOINT]. It should handle authentication headers, retries with exponential backoff, and transform the raw data into [INTERFACE_NAME].'
+  },
+  {
+    title: 'Dark Mode Logic Integration',
+    category: 'Design',
+    scenario: 'Applying global theme vibes',
+    template: 'Implement a robust theme switching system. The vibe should be "Midnight Professional" for dark mode and "Clean Canvas" for light mode. Provide the Tailwind config and the React context provider.'
+  },
+  {
+    title: 'Mobile Optimization Audit',
+    category: 'Design',
+    scenario: 'Refining for small screens',
+    template: 'Review the provided UI code. Identify three areas where mobile usability is compromised. Rewrite the components to use a mobile-first approach, ensuring touch targets are at least 44px.'
+  },
+  {
+    title: 'Test Suite Manifestation',
+    category: 'Logic',
+    scenario: 'Ensuring system stability',
+    template: 'Generate a suite of Vitest or Jest tests for [FUNCTION_NAME]. Cover the happy path, boundary conditions, and invalid inputs. Mock all external API calls to ensure deterministic testing.'
+  },
+  {
+    title: 'Accessibility Compliance Refactor',
+    category: 'Design',
+    scenario: 'Meeting WCAG standards',
+    template: 'Refactor the following HTML/React snippet to meet WCAG 2.1 AA standards. Ensure proper heading hierarchy, alt text for images, and keyboard focus management for all interactive elements.'
+  },
+  {
+    title: 'Automated Documentation Generator',
+    category: 'Logic',
+    scenario: 'Explaining code to human architects',
+    template: 'Analyze [FILE_PATH]. Generate professional documentation including a high-level summary, a list of exported functions with parameters/return types, and a "Vibe Overview" explaining the intent.'
   }
 ];
 
 export const GLOSSARY: GlossaryItem[] = [
-  { term: 'Context Window', definition: 'The amount of information an AI can "remember" or consider at one time during a conversation.' },
-  { term: 'Token', definition: 'The basic unit of text that an AI processes (roughly 4 characters).' },
-  { term: 'Inference', definition: 'The process of the AI generating a response based on your prompt.' },
-  { term: 'Hallucination', definition: 'When an AI confidently provides incorrect or non-existent information.' },
-  { term: 'Agentic Workflow', definition: 'Software that can use tools (like a browser or terminal) to accomplish multi-step goals on its own.' }
+  { term: 'Vibe Coding', definition: 'The collapse of the barrier between human creative intent and digital manifestation via high-context agentic reasoning.' },
+  { term: 'Probabilistic UI', definition: 'Interfaces generated by LLMs that may vary slightly in implementation but maintain the intended functional "vibe".' },
+  { term: 'System Orchestration', definition: 'The act of managing multiple AI-driven services to work as a unified application.' },
+  { term: 'Deterministic Logic', definition: 'Code that produces the same output every time given the same input, crucial for AI reliability.' }
 ];
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
     title: 'FitVibe Tracker',
     description: 'A full-stack fitness app built in 4 hours.',
-    vibe: 'Modern, energizing, data-heavy but clean.',
-    outcome: '1,200 active users in the first week, zero manual code written for the UI.',
-    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=600'
+    vibe: 'Modern, high-energy dashboard with real-time data visualization.',
+    outcome: 'Completed the MVP without writing a single manual CSS class.',
+    imagePrompt: 'A futuristic fitness dashboard on a smartphone screen, vibrant neon blue and lime green accents, minimalist data charts, professional UI/UX photography.'
   },
   {
     title: 'AutoLegal AI',
     description: 'Document automation for small law firms.',
     vibe: 'Professional, trustworthy, high-contrast.',
-    outcome: 'Reduced document processing time by 80% using Make.com integrations.',
-    image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=600'
+    outcome: 'Reduced document processing time by 80% using Make.com and OpenAI.',
+    imagePrompt: 'A sleek legal dashboard with high contrast typography, document icons floating, professional navy blue and white aesthetic, 4k render.'
   }
 ];
 
 export const TOOLKIT: Tool[] = [
-  { name: 'Cursor', category: 'IDEs', description: 'AI-first code editor that understands your entire codebase.' },
-  { name: 'Windsurf', category: 'IDEs', description: 'Agentic IDE designed for flow and deep AI collaboration.' },
-  { name: 'v0.dev', category: 'Frontend', description: 'Vercel\'s UI component generator for rapid interface development.' },
-  { name: 'Lovable', category: 'Frontend', description: 'GPT-engineer specialized in full-stack web applications.' },
-  { name: 'Supabase', category: 'Backend', description: 'Open-source Firebase alternative for databases, auth, and edge functions.' },
-  { name: 'Make.com', category: 'Automation', description: 'Visual automation platform for complex workflows.' },
-  { name: 'Bolt.new', category: 'Frontend', description: 'Prompt-to-app generator by StackBlitz.' },
-  { name: 'Replit Agent', category: 'Backend', description: 'AI agent that builds and deploys your backend services.' }
+  { name: 'Cursor', category: 'IDEs', description: 'The current industry leader for AI-native code editing.' },
+  { name: 'Windsurf', category: 'IDEs', description: 'Agentic IDE designed for high-flow state development.' },
+  { name: 'v0.dev', category: 'Frontend', description: 'Vercel\'s engine for generating UI from natural language.' },
+  { name: 'Lovable', category: 'Frontend', description: 'Full-stack GPT engineer for rapid application manifest.' },
+  { name: 'Supabase', category: 'Backend', description: 'Postgres-based backend for instant data persistence.' },
+  { name: 'Make.com', category: 'Automation', description: 'The visual "Glue" for connecting disparate system APIs.' },
+  { name: 'Bolt.new', category: 'Frontend', description: 'Prompt-to-app generator for instant browser-based dev.' },
+  { name: 'Replit Agent', category: 'Deployment', description: 'Autonomous agent that builds and deploys full-stack apps.' },
+  { name: 'Claude 3.7 Sonnet', category: 'Models', description: 'The gold standard for coding logic and architectural reasoning.' },
+  { name: 'GPT-4o', category: 'Models', description: 'Versatile multi-modal model for vision and general intent.' },
+  { name: 'Perplexity', category: 'Research', description: 'Real-time research engine for domain-specific knowledge.' },
+  { name: 'Figma AI', category: 'Design', description: 'Generates design systems and layouts for visual vibes.' },
+  { name: 'Resend', category: 'Communication', description: 'The professional standard for developer-first email delivery.' },
+  { name: 'Upstash', category: 'Backend', description: 'Serverless Redis/Kafka for low-latency system state.' },
+  { name: 'Clerk', category: 'Authentication', description: 'Comprehensive user management and auth manifest.' },
+  { name: 'Aider', category: 'CLI Tools', description: 'Powerful command-line chat for pair programming.' },
+  { name: 'Continue.dev', category: 'IDEs', description: 'Open-source autopilot extension for VS Code/JetBrains.' },
+  { name: 'Linear', category: 'Planning', description: 'The streamlined tool for tracking architectural progress.' },
+  { name: 'Vercel', category: 'Deployment', description: 'The premier platform for frontend and edge function manifest.' },
+  { name: 'Netlify', category: 'Deployment', description: 'High-speed cloud platform for modern web projects.' },
+  { name: 'Postman', category: 'Testing', description: 'The foundational tool for testing API waiter logic.' },
+  { name: 'Lucide', category: 'Assets', description: 'Beautiful, minimalist icon sets for UI building blocks.' },
+  { name: 'Tailwind CSS', category: 'Frontend', description: 'The utility-first framework for visual manifest.' },
+  { name: 'Shadcn/UI', category: 'Frontend', description: 'Standardized accessible component architecture.' },
+  { name: 'Prisma', category: 'Backend', description: 'Next-generation ORM for intuitive database modeling.' },
+  { name: 'Stripe', category: 'Payments', description: 'The standard for monetizing digital intent.' },
+  { name: 'Pinecone', category: 'Vector DB', description: 'Memory bank for long-term AI context and RAG.' },
+  { name: 'LangChain', category: 'Orchestration', description: 'Framework for building complex agentic workflows.' },
+  { name: 'n8n', category: 'Automation', description: 'Self-hosted workflow automation for data sovereignty.' },
+  { name: 'Railway', category: 'Deployment', description: 'Simple, powerful cloud platform for backend services.' },
+  { name: 'OpenAI Whisper', category: 'AI Services', description: 'World-class speech-to-intent transcription.' },
+  { name: 'ElevenLabs', category: 'AI Services', description: 'High-fidelity audio manifest for system voices.' },
+  { name: 'Midjourney', category: 'Design', description: 'High-fidelity visual vibe generation for branding.' },
+  { name: 'Excalidraw', category: 'Design', description: 'Virtual whiteboard for sketching system architecture.' },
+  { name: 'Drizzle ORM', category: 'Backend', description: 'Lightweight, fast SQL-first database modeling.' },
+  { name: 'Firebase', category: 'Backend', description: 'Comprehensive platform for mobile and web manifest.' },
+  { name: 'Playwright', category: 'Testing', description: 'Automated E2E testing for architectural validation.' },
+  { name: 'Storybook', category: 'Frontend', description: 'Isolated environment for perfecting UI building blocks.' },
+  { name: 'Tally', category: 'Research', description: 'The simplest way to manifest data-collection forms.' },
+  { name: 'Arc Browser', category: 'Workspace', description: 'The optimized workspace for modern system architects.' }
 ];
 
 export const MODULES: ModuleData[] = [
   {
     id: ModuleId.Intro,
-    title: 'Introduction: The Era of Intent',
-    description: 'The gatekeepers of code are gone. Master the mindset shift from a bricklayer (syntax-obsessed) to an architect (intent-obsessed).',
+    title: 'Foundation: The Vibe Coding Manifesto',
+    description: 'Vibe coding leverages AI to build apps based on product-specific knowledge and domain expertise, not just general coding skills.',
     lessons: [
       {
-        title: 'Manifesting Intent',
-        conceptTitle: 'Architecture vs. Bricklaying',
-        conceptAnalogy: 'Vibe Coding is being the architect: you define the rooms, the mood, and the flow, while a robotic construction crew (AI) handles the precision work.',
-        conceptDescription: 'Vibe Coding isn\'t "no-code"—it\'s "high-level-code". You are the conductor of an orchestra. You don\'t need to play the violin, you need to know how the violin should sound in the symphony. Your intent (the "What") is the primary driver; the syntax (the "How") is delegated.',
+        title: 'AI-Assisted Development',
+        conceptTitle: 'Intent-First Development',
+        conceptAnalogy: 'Vibe Coding is being a master conductor. You don\'t need to play every instrument to ensure the symphony is perfect.',
+        conceptDescription: 'Vibe coding leverages AI to build apps based on product-specific knowledge and domain expertise, not just general coding skills. The power of AI in development lies in applying creative problem-solving and specialized knowledge to produce innovative solutions.',
         instructions: [
-          '➡ Stop thinking about loops and variables; start thinking about systems and experiences.',
-          '➡ Practice "High-Level Specification": Describe a feature as if you were explaining it to a very smart, tireless intern.',
-          '➡ Define the boundaries: What data comes in? What value goes out?'
+          '➡ Adopt the identity of a "System Architect".',
+          '➡ Apply creative problem-solving and specialized knowledge.',
+          '➡ Understand that domain expertise is your most valuable asset.'
         ],
-        visualGuideDescription: 'Action: Sketch a 3-tier pyramid. At the base is "Syntax" (The bricks), in the middle is "Logic" (The frame), and at the peak is "Intent" (The blueprint). In Vibe Coding, you sit at the peak and command the layers below.'
-      },
-      {
-        title: 'The Feedback Loop',
-        conceptTitle: 'The Echo Chamber',
-        conceptAnalogy: 'Talking to an AI is like throwing a ball against a wall. The way it bounces back tells you if the wall is straight or slanted.',
-        conceptDescription: 'Software creation is now iterative conversation. You prompt, the AI builds, you review, and you refine. This loop is where the "Vibe" is polished until it matches your vision perfectly.',
-        instructions: [
-          '➡ Never expect perfection on the first prompt.',
-          '➡ Use the "Refine and Correct" pattern: build a small part, verify it works, then move to the next.',
-          '➡ Treat errors as conversation starters, not roadblocks.'
-        ],
-        visualGuideDescription: 'Action: Visualize a circular path with four stops: Prompt -> Generate -> Test -> Refine. This circle is your engine of progress. Each rotation makes your app stronger.'
+        visualGuideDescription: 'A central brain emitting light beams (Intent) that pass through a digital prism (AI) to create a complex skyscraper (Software).',
+        imagePrompt: 'A futuristic clean laboratory with a central glowing core of "intent", data streams connecting to specialized industry icons, ultra-modern 3D render.',
+        videoUrl: 'https://www.youtube.com/embed/sdH7YPAmHes'
       }
     ],
     quiz: [
-      { question: 'What is the primary role of a Vibe Coder?', options: ['Writing every line of code by hand', 'Designing the intent and architecture', 'Fixing low-level compiler bugs', 'Drawing icons'], correctIndex: 1 },
-      { question: 'What is the "Syntax" in our pyramid analogy?', options: ['The Blueprint', 'The Architect', 'The Bricks', 'The Building Owner'], correctIndex: 2 },
-      { question: 'How should you treat an AI\'s mistake?', options: ['Start over from scratch', 'Give up on Vibe Coding', 'A conversation starter to refine your intent', 'Report a bug to the developers'], correctIndex: 2 }
+      { question: 'What is the core of AI-Assisted Development in Vibe Coding?', options: ['Typing faster', 'Applying domain expertise through AI', 'Using older hardware', 'Writing manual binary'], correctIndex: 1 }
     ]
   },
   {
     id: ModuleId.Workspace,
-    title: 'Module 2: The Pilot’s Seat',
-    description: 'Setting up your cockpit. Learn how to feed your AI the "Context" it needs to be your most powerful ally.',
+    title: 'Module 2: Prompt Engineering',
+    description: 'Creating a minimalist prompt with domain-specific research is the crucial first step in vibe coding.',
     lessons: [
       {
-        title: 'The Power of Context',
-        conceptTitle: 'The Informed Pilot',
-        conceptAnalogy: 'Imagine trying to land a plane if you couldn\'t see the runway or the instruments. Context is the radar that tells the AI exactly where your project is.',
-        conceptDescription: 'Modern IDEs like Cursor don\'t just look at one file; they look at your whole folder. If you ask "How do I add a login button?", the AI knows which files to change because it has the "Context" of your entire app.',
+        title: 'Manifesting Intent via Prompts',
+        conceptTitle: 'The Specification Loop',
+        conceptAnalogy: 'Vibe coding is an iterative process involving trial-and-error, checkpoints, and the ability to roll back changes.',
+        conceptDescription: 'Creating a minimalist prompt with domain-specific research is the crucial first step in vibe coding, outlining the problem and desired outcome. It is a cycle of trial-and-error where you refine the "Vibe" until it meets the standard.',
         instructions: [
-          '➡ Use the "@" symbol in Cursor to point the AI to specific files, documentation, or folders.',
-          '➡ Keep your folder structure clean; it helps the AI navigate your intent.',
-          '➡ Index your project so the AI can search through your code in milliseconds.'
+          '➡ Outline the problem and desired outcome clearly.',
+          '➡ Conduct domain-specific research before writing your first prompt.',
+          '➡ Use checkpoints and prepare to roll back changes when needed.'
         ],
-        visualGuideDescription: 'Action: Picture your IDE as a central hub. Lines of "Context" are streaming in from your files, your documentation, and your database schema, focusing into a single point of intelligence: the Chat Sidebar.'
+        visualGuideDescription: 'A series of blueprints evolving from rough sketches to high-definition 3D models.',
+        imagePrompt: 'A holographic architectural blueprint floating above a minimalist desk, pencil sketches morphing into digital circuits, professional workspace aesthetic.',
+        videoUrl: 'https://www.youtube.com/embed/Xq-v690hOks'
       }
     ],
     quiz: [
-      { question: 'What is "Context" in an AI IDE?', options: ['The font size of the editor', 'Information about your entire project structure', 'The brightness of your monitor', 'The speed of your internet'], correctIndex: 1 },
-      { question: 'How do you explicitly point an AI to a file in Cursor?', options: ['Copy-pasting the whole file', 'Using the "@" symbol', 'Sending an email', 'Typing the file path manually every time'], correctIndex: 1 },
-      { question: 'Why is a clean folder structure important?', options: ['It makes the AI faster', 'It helps the AI navigate and understand your intent', 'It saves disk space', 'It makes the code run faster'], correctIndex: 1 }
+      { question: 'What is a "minimalist prompt" for?', options: ['Saving money', 'Outlining the problem and desired outcome with domain research', 'Hiding code', 'Playing games'], correctIndex: 1 }
     ]
   },
   {
     id: ModuleId.Frontend,
-    title: 'Module 3: Frontend Magic',
-    description: 'Manifesting visual beauty. Stop fighting with CSS and start directing user experiences through intent.',
+    title: 'Module 3: AI Agents and Assistants',
+    description: 'AI agents can perform complex tasks like console interaction and app building, while assistants handle lightweight edits.',
     lessons: [
       {
-        title: 'Component Thinking',
-        conceptTitle: 'Lego Block Interfaces',
-        conceptAnalogy: 'A frontend isn\'t one giant screen; it\'s a box of Legos. A button is a block. A menu is a block. A dashboard is an assembly of these blocks.',
-        conceptDescription: 'Tools like v0 and Lovable are masters of "Componentization". Instead of writing 1000 lines of code, you describe the components you need and how they should look together.',
+        title: 'The Agentic Workflow',
+        conceptTitle: 'Agents vs. Assistants',
+        conceptAnalogy: 'AI agents are your heavy lifting machinery; Assistants are your precision tools.',
+        conceptDescription: 'AI agents can perform complex tasks like console interaction, screenshot analysis, and app building. Assistants handle lightweight edits and quick changes. The debugging process in vibe coding mimics traditional methods, using error logging and trial-and-error.',
         instructions: [
-          '➡ Break your UI down: "I need a Header, a Sidebar, and a Content Grid."',
-          '➡ Prompt for specific components: "Give me a responsive navigation bar with a dark mode toggle."',
-          '➡ Focus on state: What happens when I click this? How does it change?'
+          '➡ Use Agents for complex tasks and full app construction.',
+          '➡ Use Assistants for lightweight edits and quick changes.',
+          '➡ Debug using error logging and iterative trial-and-error.'
         ],
-        visualGuideDescription: 'Action: Imagine your screen divided into a grid. Each cell contains a "Lego Block" (Component). Your job is to describe the block that goes in each cell.'
+        visualGuideDescription: 'A split screen showing a large robot building a wall (Agent) and a small precise tool painting a detail (Assistant).',
+        imagePrompt: 'Dual robotic arms working in sync on a floating translucent screen, one large and powerful, one small and precise, cybernetic laboratory setting.',
+        videoUrl: 'https://www.youtube.com/embed/5pLp4ZzB8bM'
       }
     ],
     quiz: [
-      { question: 'What is a "Component" in web development?', options: ['The computer power supply', 'A reusable building block of a UI', 'A type of database', 'The website URL'], correctIndex: 1 },
-      { question: 'What is the benefit of "Component Thinking"?', options: ['It makes the code harder to read', 'It allows you to build complex apps from simple parts', 'It makes images load faster', 'It prevents internet outages'], correctIndex: 1 },
-      { question: 'Which tool is great for generating individual UI blocks?', options: ['Supabase', 'v0.dev', 'Make.com', 'Excel'], correctIndex: 1 }
+      { question: 'What is a core capability of an AI Agent?', options: ['Only spell checking', 'Complex tasks like console interaction and app building', 'Physical repair', 'Deleting files'], correctIndex: 1 }
     ]
   },
   {
     id: ModuleId.Backend,
-    title: 'Module 4: The Engine Room',
-    description: 'Making it "Real". Learn to build the hidden logic and data storage that turns a pretty picture into a functional tool.',
+    title: 'Module 4: Persistence & System Memory',
+    description: 'The Engine Room. Turn your visual Vibe into a living, data-driven system.',
     lessons: [
       {
-        title: 'Data Persistence',
-        conceptTitle: 'The Memory Bank',
-        conceptAnalogy: 'If the frontend is the actor on stage, the backend is the script and the memory of everything that happened in the previous act.',
-        conceptDescription: 'Without a backend, your app is like a goldfish—it forgets everything when the page refreshes. Data persistence means your users can log back in and find their tasks exactly where they left them.',
+        title: 'Logical Persistence',
+        conceptTitle: 'System of Record',
+        conceptAnalogy: 'A database is a library where your application stores its memories.',
+        conceptDescription: 'Data persistence means your users can log back in and find their data. Debugging in this environment requires systematic error logging and architectural refinement.',
         instructions: [
-          '➡ Define your Schema: What pieces of data do you need to remember? (e.g., Name, Date, Status)',
-          '➡ Use AI to write SQL or API calls: "Write a function to save a new task to my Supabase database."',
-          '➡ Always verify security: Ensure only the logged-in user can see their own data.'
+          '➡ Define your data schema with architectural precision.',
+          '➡ Connect your UI state to backend storage logic.',
+          '➡ Monitor logs to ensure logical integrity.'
         ],
-        visualGuideDescription: 'Action: Visualize a secure vault (The Database). Every time a user types something on the screen, a digital messenger carries that data to the vault for safekeeping.'
+        visualGuideDescription: 'A vast digital vault with glowing data particles entering organized slots.',
+        imagePrompt: 'A vast digital vault with glowing data particles entering organized slots, deep blue and teal lighting, cinematic perspective.',
+        videoUrl: 'https://www.youtube.com/embed/S_I-vL_h5gY'
       }
     ],
     quiz: [
-      { question: 'What is the main purpose of "Persistence"?', options: ['To make the app pretty', 'To ensure data is saved even after a page refresh', 'To speed up the internet', 'To display ads'], correctIndex: 1 },
-      { question: 'What is a "Schema"?', options: ['A secret plan', 'The structure and rules of your data', 'The color scheme of your UI', 'The name of your project'], correctIndex: 1 },
-      { question: 'Which tool handles data storage in our toolkit?', options: ['v0.dev', 'Supabase', 'Cursor', 'Photoshop'], correctIndex: 1 }
+      { question: 'Why is persistence vital?', options: ['It looks cool', 'It ensures data is saved across sessions', 'It makes the font bigger', 'It is not vital'], correctIndex: 1 }
     ]
   },
   {
     id: ModuleId.Automation,
-    title: 'Module 5: The Glue',
-    description: 'Connecting the world. Learn to build workflows that stitch different services together into one powerful "Agentic" system.',
+    title: 'Module 5: System Orchestration',
+    description: 'Connecting the pieces. Learn to make your app part of a larger, intelligent ecosystem.',
     lessons: [
       {
-        title: 'Workflow Orchestration',
-        conceptTitle: 'The Rube Goldberg Machine',
-        conceptAnalogy: 'Imagine a marble rolling. It hits a switch, which turns on a fan, which blows a sail, which moves a boat. Automation is setting up these chain reactions digitally.',
-        conceptDescription: 'Your app shouldn\'t live on an island. It should talk to Google Calendar, Slack, Email, and AI services automatically. Automation tools are the "Glue" that makes these connections.',
+        title: 'The Glue of Automation',
+        conceptTitle: 'Digital Orchestration',
+        conceptAnalogy: 'Automation is like a domino rally. One event triggers a thousand reactions.',
+        conceptDescription: 'We use tools like Make.com to connect apps. It allows our intent to scale across services automatically, creating a unified systemic "Vibe".',
         instructions: [
-          '➡ Identify "Triggers": What starts the process? (e.g., A new database entry)',
-          '➡ Define "Actions": What should happen next? (e.g., Send a notification)',
-          '➡ Use Make.com to visually map these paths without writing a single line of logic.'
+          '➡ Identify system triggers and downstream actions.',
+          '➡ Use automation to bridge gaps between different APIs.',
+          '➡ Ensure failure handling is built into the orchestration.'
         ],
-        visualGuideDescription: 'Action: Visualize a series of connected gears. When the first gear (The Trigger) turns, it forces all the other gears (The Actions) to turn in sequence.'
+        visualGuideDescription: 'Interconnected gears glowing as they turn, each gear representing a different service.',
+        imagePrompt: 'An intricate web of glowing fiber optic lines connecting various floating application icons in a dark void, energy pulses moving through the lines.',
+        videoUrl: 'https://www.youtube.com/embed/1BNo0N8_D70'
       }
     ],
     quiz: [
-      { question: 'What is a "Trigger" in automation?', options: ['The end of a process', 'The event that starts a workflow', 'A type of computer mouse', 'An error message'], correctIndex: 1 },
-      { question: 'What is "The Glue" in Vibe Coding?', options: ['Actual physical glue', 'The tools that connect different apps and services', 'The CSS code', 'The browser window'], correctIndex: 1 },
-      { question: 'Which tool is best for visual automation?', options: ['Supabase', 'Make.com', 'Cursor', 'v0.dev'], correctIndex: 1 }
+      { question: 'What does "The Glue" represent?', options: ['Physical sticky stuff', 'Tools that connect different apps and services', 'The keyboard', 'The mouse'], correctIndex: 1 }
     ]
   },
   {
     id: ModuleId.FinalProject,
-    title: 'Module 6: The Final Build',
-    description: 'Assembling the Masterpiece. Bring your Frontend, Backend, and Glue together into one unified manifest of your intent.',
+    title: 'Module 6: Development and Deployment',
+    description: 'Deployment involves the AI agent bundling the entire environment and making it live on the web.',
     lessons: [
       {
-        title: 'The Great Assembly',
-        conceptTitle: 'The Ribbon Cutting',
-        conceptAnalogy: 'It\'s time to take your blueprint, your bricks, and your engine and finally open the doors to your creation.',
-        conceptDescription: 'In this final phase, you aren\'t learning new tools—you are orchestrating the ones you already know. You will link your Lovable UI to your Supabase backend and add a final automation layer for that "wow" factor.',
+        title: 'The Cloud Launch',
+        conceptTitle: 'Live Manifestation',
+        conceptAnalogy: 'Deployment is the rocket launch. You bundle your system and send it into the orbit of the public internet.',
+        conceptDescription: 'Deployment in vibe coding involves the AI agent bundling the entire environment and making it live on the web. Replit provides a cloud-based live development environment, enabling access from mobile devices. Redeployment is necessary for updates.',
         instructions: [
-          '➡ Deploy your Frontend: Get your app live on the web so others can see it.',
-          '➡ Wire up the "Real" data: Replace static placeholder text with real data from your database.',
-          '➡ Final Vibe Check: Test the entire flow from a user\'s perspective. Does it feel right?'
+          '➡ Bundle the entire environment for live web access.',
+          '➡ Use cloud environments like Replit for mobile interaction.',
+          '➡ Redeploy regularly to manifest project updates.'
         ],
-        visualGuideDescription: 'Action: Picture all your previous "Building Blocks" merging into a single, glowing, functional orb. This orb is your finished Application.'
+        visualGuideDescription: 'A "Deploy" button being pressed, followed by a rocket-like launch of code into a cloud nebula.',
+        imagePrompt: 'A digital rocket made of code launching into a vast, glowing purple cloud network, 4k resolution, cinematic lighting.',
+        videoUrl: 'https://www.youtube.com/embed/v7X_O5h2I9Y'
       }
     ],
     quiz: [
-      { question: 'What is the focus of the Final Build?', options: ['Learning a new programming language', 'Synthesizing all tools into one working product', 'Buying a domain name', 'Deleting your old code'], correctIndex: 1 },
-      { question: 'What does it mean to "Wire up real data"?', options: ['Plugging in more power cables', 'Connecting the UI to the Database storage', 'Typing faster', 'Using more colors'], correctIndex: 1 },
-      { question: 'What is the "Final Vibe Check"?', options: ['A grammar check', 'Testing the user experience flow', 'Checking your computer battery', 'Measuring the download speed'], correctIndex: 1 }
+      { question: 'What is necessary for project updates in a deployed app?', options: ['Deleting the account', 'Redeployment', 'Buying a new domain', 'Waiting for a week'], correctIndex: 1 }
     ]
   }
 ];
