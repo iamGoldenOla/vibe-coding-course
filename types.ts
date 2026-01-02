@@ -8,7 +8,7 @@ export enum ModuleId {
   FinalProject = 'final-project'
 }
 
-export type ViewType = 'curriculum' | 'prompts' | 'glossary' | 'cases' | 'graduation';
+export type ViewType = 'curriculum' | 'prompts' | 'glossary' | 'cases' | 'graduation' | 'sandbox' | 'auditor';
 
 export interface QuizQuestion {
   question: string;
@@ -23,8 +23,8 @@ export interface Lesson {
   conceptDescription: string;
   instructions: string[];
   visualGuideDescription: string;
-  imagePrompt: string; // Used for the AI image generator
-  videoUrl?: string; // YouTube embed URL
+  imagePrompt: string;
+  videoUrl?: string;
 }
 
 export interface ModuleData {
@@ -33,12 +33,13 @@ export interface ModuleData {
   description: string;
   lessons: Lesson[];
   quiz: QuizQuestion[];
+  checklist: string[];
   introVideo?: string;
 }
 
 export interface Tool {
   name: string;
-  category: string;
+  category: 'IDEs' | 'Frontend' | 'Backend' | 'Automation' | 'Models' | 'Research' | 'Deployment' | 'Design' | 'AI Services' | 'Testing' | 'Assets' | 'Communication' | 'Workspace' | 'Orchestration' | 'Planning';
   description: string;
   link?: string;
 }
@@ -61,4 +62,10 @@ export interface CaseStudy {
   vibe: string;
   outcome: string;
   imagePrompt: string;
+}
+
+export interface VibeManifesto {
+  palette: string[];
+  fonts: string[];
+  vibeDescription: string;
 }
